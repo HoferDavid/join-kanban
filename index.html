@@ -1,109 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="icon" href="assets/icons/logoBlue.svg" />
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style/fonts.css">
-    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style/fonts.css" />
+    <link rel="stylesheet" href="style/login.css" />
 
     <script type="module">
+      const firebaseConfig = {
+        apiKey: 'AIzaSyBV2_M6vTz6w3CeS5xr9YMXjp9K4KPlGls',
+        authDomain: 'joinkanbanboard.firebaseapp.com',
+        databaseURL: 'https://joinkanbanboard-default-rtdb.europe-west1.firebasedatabase.app',
+        projectId: 'joinkanbanboard',
+        storageBucket: 'joinkanbanboard.appspot.com',
+        messagingSenderId: '867764951516',
+        appId: '1:867764951516:web:fbb1fafb18635e4c015719',
+      };
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyAVuunbXTGr2CljBpc6fitx4--oaLEfEsE",
-            authDomain: "join-273.firebaseapp.com",
-            databaseURL: "https://join-273-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "join-273",
-            storageBucket: "join-273.appspot.com",
-            messagingSenderId: "180936491276",
-            appId: "1:180936491276:web:9d04962cf61d639e138929"
-        };
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js';
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js';
+      import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js';
 
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const database = getDatabase(app);
 
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
-        import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
-        import { getDatabase } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const database = getDatabase(app);
-
-
-        window.firebaseApp = app;
-        window.firebaseAuth = auth;
-        window.firebaseDatabase = database;
+      window.firebaseApp = app;
+      window.firebaseAuth = auth;
+      window.firebaseDatabase = database;
     </script>
     <script type="module" src="script/login.js"></script>
     <script src="script/contacts.js"></script>
     <script src="script/contactsTemplate.js"></script>
     <script src="script.js"></script>
+  </head>
 
-
-
-
-</head>
-
-<body>
+  <body>
     <div class="content">
-        <div class="rotate-warning"></div>
-        <img id="logo" src="assets/icons/logoBlue.svg">
-        <header>
-            <span>Not a Join user?</span>
-            <button class="signup-button" onclick="window.location.href='html/register.html';">
-                Sign Up
-            </button>
-        </header>
+      <div class="rotate-warning"></div>
+      <img id="logo" src="assets/icons/logoBlue.svg" />
+      <header>
+        <span>Not a Join user?</span>
+        <button
+          class="signup-button"
+          onclick="window.location.href='html/register.html';"
+        >
+          Sign Up
+        </button>
+      </header>
 
+      <main>
+        <section id="login-form-container">
+          <form class="form-container" id="login-form">
+            <div class="headline">
+              <div>Log in</div>
+              <div class="underline"></div>
+            </div>
 
-        <main>
-            <section id="login-form-container">
-                <form class="form-container" id="login-form">
-                    <div class="headline">
-                        <div>Log in</div>
-                        <div class="underline"></div>
-                    </div>
+            <div class="login-field">
+              <input
+                id="emailInput"
+                required
+                type="email"
+                placeholder="Email"
+                autocomplete="email"
+              />
+              <input
+                id="passwordInput"
+                required
+                type="password"
+                placeholder="Password"
+                autocomplete="current-password"
+              />
+              <label for="rememberMe" class="checkbox">
+                <input
+                  type="checkbox"
+                  id="rememberMe"
+                  name="rememberMe"
+                  style="display: none"
+                />
+                <img
+                  src="assets/icons/check1.png"
+                  id="checkbox"
+                  class="checkbox-img"
+                />
+                Remember me
+              </label>
+            </div>
 
+            <div id="error-message" style="color: red; display: none">
+              Ups, wrong e-mail address or password! Try again.
+            </div>
 
-                    <div class="login-field">
-                        <input id="emailInput" required type="email" placeholder="Email" autocomplete="email">
-                        <input id="passwordInput" required type="password" placeholder="Password"
-                            autocomplete="current-password">
-                        <label for="rememberMe" class="checkbox">
-                            <input type="checkbox" id="rememberMe" name="rememberMe" style="display:none;" />
-                            <img src="assets/icons/check1.png" id="checkbox" class="checkbox-img" />
-                            Remember me
-                        </label>
-                    </div>
+            <div class="button-section-for-entry">
+              <button
+                type="button"
+                id="loginButton"
+                class="login-signup-button"
+              >
+                Log in
+              </button>
+              <button type="button" id="guestLogin" class="guest-login-button">
+                Guest Log in
+              </button>
+            </div>
+          </form>
+        </section>
+      </main>
 
-
-                    <div id="error-message" style="color: red; display: none;">
-                        Ups, wrong e-mail address or password! Try again.
-                    </div>
-
-
-                    <div class="button-section-for-entry">
-                        <button type="button" id="loginButton" class="login-signup-button">Log in</button>
-                        <button type="button" id="guestLogin" class="guest-login-button">Guest Log in</button>
-                    </div>
-                </form>
-            </section>
-        </main>
-
-
-        <footer>
-            <a href="html/privacy.html" onclick="sessionStorage.setItem('activeTab', this.innerHTML.toLowerCase());"
-                target="_blank">Privacy Policy</a>
-            <a href="html/imprint.html" onclick="sessionStorage.setItem('activeTab', this.innerHTML.toLowerCase())"
-                target="_blank">Legal Notice</a>
-        </footer>
-
+      <footer>
+        <a
+          href="html/privacy.html"
+          onclick="sessionStorage.setItem('activeTab', this.innerHTML.toLowerCase());"
+          target="_blank"
+          >Privacy Policy</a
+        >
+        <a
+          href="html/imprint.html"
+          onclick="sessionStorage.setItem('activeTab', this.innerHTML.toLowerCase())"
+          target="_blank"
+          >Legal Notice</a
+        >
+      </footer>
     </div>
-
-
-</body>
-
+  </body>
 </html>
