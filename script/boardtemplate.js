@@ -1,6 +1,6 @@
 /**
  * Generates the HTML for a todo item.
- * 
+ *
  * @param {Object} element - The todo item object.
  * @param {string} element.id - The ID of the todo item.
  * @param {string} element.category - The category of the todo item.
@@ -40,7 +40,7 @@ function generateTodoHTML(element) {
 
 /**
  * Generates the HTML for the category badge.
- * 
+ *
  * @param {string} category - The category of the todo item.
  * @returns {string} The generated HTML string for the category badge.
  */
@@ -57,7 +57,7 @@ function generateCategoryHTML(category) {
 
 /**
  * Generates the HTML for the title of the todo item.
- * 
+ *
  * @param {string} title - The title of the todo item.
  * @returns {string} The generated HTML string for the title.
  */
@@ -74,7 +74,7 @@ function generateTitleHTML(title) {
 
 /**
  * Generates the HTML for the description of the todo item.
- * 
+ *
  * @param {string} description - The description of the todo item.
  * @returns {string} The generated HTML string for the description.
  */
@@ -91,7 +91,7 @@ function generateDescriptionHTML(description) {
 
 /**
  * Generates the HTML for the subtasks of the todo item.
- * 
+ *
  * @param {Array} subtasks - The subtasks of the todo item.
  * @param {string} id - The ID of the todo item.
  * @returns {string} The generated HTML string for the subtasks.
@@ -113,7 +113,7 @@ function generateSubtasksHTML(subtasks, id) {
 
 /**
  * Generates the HTML for the assigned users of the todo item.
- * 
+ *
  * @param {Array} assignedTo - The assigned users to the todo item.
  * @returns {string} The generated HTML string for the assigned users.
  */
@@ -135,7 +135,7 @@ function generateAssignedToHTML(assignedTo) {
 
 /**
  * Generates the HTML for the priority icon of the todo item.
- * 
+ *
  * @param {string} prio - The priority of the todo item.
  * @returns {string} The generated HTML string for the priority icon.
  */
@@ -154,7 +154,7 @@ function generatePrioHTML(prio) {
 
 /**
  * Fetches the HTML template for adding a new task.
- * 
+ *
  * @returns {Promise<string>} A promise that resolves to the HTML string for the add task template.
  */
 async function fetchAddTaskTemplate() {
@@ -170,7 +170,7 @@ async function fetchAddTaskTemplate() {
 
 /**
  * Generates the HTML for the category badge in the modal.
- * 
+ *
  * @param {string} category - The category of the todo item.
  * @returns {string} The generated HTML string for the category badge in the modal.
  */
@@ -187,7 +187,7 @@ function generateModalCategoryHTML(category) {
 
 /**
  * Generates the HTML for the assigned users in the modal.
- * 
+ *
  * @param {Array} assignedTo - The assigned users to the todo item.
  * @returns {string} The generated HTML string for the assigned users in the modal.
  */
@@ -208,7 +208,7 @@ function generateModalAssignedToHTML(assignedTo) {
 
 /**
  * Generates the HTML for the subtasks in the modal.
- * 
+ *
  * @param {Object} element - The todo item object.
  * @param {Array} element.subtasks - The subtasks of the todo item.
  * @returns {string} The generated HTML string for the subtasks in the modal.
@@ -235,7 +235,7 @@ function generateModalSubtasksHTML(element) {
 
 /**
  * Generates the HTML for opening the overlay of a todo item.
- * 
+ *
  * @param {Object} element - The todo item object.
  * @param {string} element.id - The ID of the todo item.
  * @param {string} element.category - The category of the todo item.
@@ -302,7 +302,7 @@ function generateOpenOverlayHTML(element) {
 
 /**
  * Generates the HTML for editing a task.
- * 
+ *
  * @param {string} taskId - The ID of the task to be edited.
  * @returns {string} The generated HTML string for editing the task.
  */
@@ -411,19 +411,19 @@ function generateTaskEditHTML(taskId) {
 
 /**
  * Generates the HTML for the delete confirmation dialog.
- * 
+ *
  * @param {string} id - The ID of the task to be deleted.
  * @returns {string} The generated HTML string for the delete confirmation dialog.
  */
 function openDeleteTaskSureHtml(id) {
     return /*html*/`
         <div class="deleteQuestion">
-            <p>Do you really want to delete this entry?</p>
+            <p>Do you really want to delete this task?</p>
             <form onsubmit="deleteTaskSure('${id}'); return false;">
-                <button type="button" onclick="toggleClass('deleteResponse', 'ts0', 'ts1')">NO 
+                <button type="button" onclick="toggleClass('deleteResponse', 'ts0', 'ts1')">NO
                     <img src="../assets/icons/close.svg" alt="close X">
                 </button>
-                <button type="submit">YES 
+                <button type="submit">YES
                     <img src="../assets/icons/check.svg" alt="check icon">
                 </button>
             </form>

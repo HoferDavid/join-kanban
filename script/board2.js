@@ -99,7 +99,7 @@ async function updateSubtaskStatus(taskId, subtaskIndex) {
   if (task) {
     let subtask = task.subtasks[subtaskIndex];
     if (subtask) {
-      updateSubtaskStatusDom(subtask);
+      updateSubtaskStatusDom(subtask, subtaskIndex);
       updateSubtasksProgressBar(task.subtasks, taskId);
       await updateData(`${BASE_URL}tasks/${taskId}.json`, task);
       let taskIndex = tasks.findIndex(t => taskId === t.id);
@@ -119,7 +119,7 @@ async function updateSubtaskStatus(taskId, subtaskIndex) {
  *
  * @returns {void}
  */
-function updateSubtaskStatusDom(subtask) {
+function updateSubtaskStatusDom(subtask, subtaskIndex) {
   subtask.status = subtask.status === "checked" ? "unchecked" : "checked";
   let subtaskCheckbox = document.getElementById(`subtaskCheckbox${subtaskIndex}`);
   if (subtaskCheckbox) {
@@ -177,7 +177,7 @@ function createEditedTask(taskId) {
 
 /**
  * Helper function to create the edited task object.
- * 
+ *
  * @param {Object[]} subtasks - The updated subtasks.
  * @param {Object} originalTask - The original task object.
  * @returns {Object} The edited task object.
@@ -198,7 +198,7 @@ function createEditedTaskReturn(subtasks, originalTask) {
 
 /**
  * Saves the edited task and updates the board accordingly.
- * 
+ *
  * @async
  * @param {Event} event - The form submission event.
  * @param {string} taskId - The ID of the task to save.
@@ -218,7 +218,7 @@ async function saveEditedTask(event, taskId) {
 
 /**
  * Closes the modal if outside the overlay or add task overlay is clicked.
- * 
+ *
  * @param {MouseEvent} event - The mouse click event.
  */
 window.onclick = function (event) {
