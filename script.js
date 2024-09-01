@@ -1,4 +1,4 @@
-let BASE_URL = 'https://join-273-default-rtdb.europe-west1.firebasedatabase.app/';
+let BASE_URL = 'https://joinkanbanboard-default-rtdb.europe-west1.firebasedatabase.app/';
 let currentUser = JSON.parse(localStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('currentUser')) || null;
 let activeTab = sessionStorage.getItem('activeTab') || '';
 let contacts = JSON.parse(sessionStorage.getItem('contact')) || [];
@@ -50,7 +50,7 @@ async function includeHTML() {
 
 /**
  * Changes the active tab to the specified link.
- * 
+ *
  * @param {Element} link - The link element that was clicked.
  */
 function changeActive(link) {
@@ -93,7 +93,7 @@ function removeActiveTab() {
 
 /**
  * Sets the active tab to the specified link.
- * 
+ *
  * @param {string} link - The selector for the link element to set as active.
  */
 function setActiveTab(link) {
@@ -106,7 +106,7 @@ function setActiveTab(link) {
 
 /**
  * Updates the active priority button based on the specified priority.
- * 
+ *
  * @param {string} prio - The priority level to set as active.
  */
 function updatePrioActiveBtn(prio) {
@@ -122,7 +122,7 @@ function updatePrioActiveBtn(prio) {
 
 /**
  * Changes the active button based on the specified priority.
- * 
+ *
  * @param {string} prio - The priority level to set as active.
  */
 function changeActiveBtn(prio) {
@@ -159,7 +159,7 @@ function checkCurrentUser() {
 
 /**
  * Hides content for users who are not logged in.
- * 
+ *
  * @param {NodeList} forbiddenContent - The content elements to hide.
  * @param {Element} menuUserContainer - The user menu container element.
  * @param {Element} headerUserContainer - The user header container element.
@@ -173,7 +173,7 @@ function noUserContent(forbiddenContent, menuUserContainer, headerUserContainer)
 
 /**
  * Shows content for users who are logged in.
- * 
+ *
  * @param {NodeList} forbiddenContent - The content elements to show.
  * @param {Element} menuUserContainer - The user menu container element.
  * @param {Element} headerUserContainer - The user header container element.
@@ -187,7 +187,7 @@ function userContent(forbiddenContent, menuUserContainer, headerUserContainer) {
 
 /**
  * Toggles between two classes on a specified element.
- * 
+ *
  * @param {string} menu - The ID of the element to toggle classes on.
  * @param {string} className1 - The first class to toggle.
  * @param {string} className2 - The second class to toggle.
@@ -201,7 +201,7 @@ function toggleClass(menu, className1, className2) {
 
 /**
  * Gets the value of an element by its ID.
- * 
+ *
  * @param {string} id - The ID of the element to get the value from.
  * @returns {string} The value of the element.
  */
@@ -212,7 +212,7 @@ function getId(id) {
 
 /**
  * Loads data from a specified path in the database.
- * 
+ *
  * @param {string} [path=''] - The path to load data from.
  * @returns {Promise<Object>} The loaded data.
  */
@@ -229,7 +229,7 @@ async function loadData(path = '') {
 
 /**
  * Deletes data from a specified path in the database.
- * 
+ *
  * @param {string} [path=''] - The path to delete data from.
  * @returns {Promise<Object>} The response from the delete request.
  */
@@ -243,7 +243,7 @@ async function deleteData(path = '') {
 
 /**
  * Posts data to a specified path in the database.
- * 
+ *
  * @param {string} [path=''] - The path to post data to.
  * @param {Object} [data={}] - The data to post.
  * @returns {Promise<Object>} The response from the post request.
@@ -264,7 +264,7 @@ async function postData(path = "", data = {}) {
 
 /**
  * Updates data at a specified URL in the database.
- * 
+ *
  * @param {string} url - The URL to update data at.
  * @param {Object} data - The data to update.
  * @returns {Promise<Object>} The response from the update request.
@@ -285,7 +285,7 @@ async function updateData(url, data) {
 
 /**
  * Displays a confirmation modal to delete a task.
- * 
+ *
  * @param {number} id - The ID of the task to delete.
  */
 function deleteTask(id) {
@@ -296,7 +296,7 @@ function deleteTask(id) {
 
 /**
  * Deletes a task after confirmation and updates the task list.
- * 
+ *
  * @param {number} id - The ID of the task to delete.
  */
 async function deleteTaskSure(id) {
@@ -312,7 +312,7 @@ async function deleteTaskSure(id) {
 
 /**
  * Capitalizes the first letter of a string.
- * 
+ *
  * @param {string} str - The string to capitalize.
  * @returns {string} The capitalized string.
  */
@@ -350,7 +350,7 @@ function activateOutsideCheck(modalName, class1, class2) {
  * Checks if the user has clicked outside a specified modal element.
  * If the user has clicked outside the modal and the modal has the specified class,
  * the function toggles the classes of the modal to hide it.
- * 
+ *
  * @param {string} modalName - The ID of the modal element.
  * @param {string} class1 - The class to check if the modal has.
  * @param {string} class2 - The class to toggle if the modal should be hidden.
