@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../assets/icons/logoBlue.svg" />
+    <link rel="stylesheet" href="../style/register.css">
+    <link rel="stylesheet" href="../style/fonts.css">
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAVuunbXTGr2CljBpc6fitx4--oaLEfEsE",
+            authDomain: "join-273.firebaseapp.com",
+            databaseURL: "https://join-273-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "join-273",
+            storageBucket: "join-273.appspot.com",
+            messagingSenderId: "180936491276",
+            appId: "1:180936491276:web:9d04962cf61d639e138929"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+
+        window.firebaseApp = app;
+        window.firebaseAuth = auth;
+        window.firebaseDatabase = database;
+    </script>
+
+
+    <script type="module" src="../script/register.js"></script>
+    <script src="../script/contacts.js"></script>
+    <script src="../script/contactsTemplate.js"></script>
+    <script src="../script.js"></script>
+
+</head>
+
+<body>
+    <div class="head">
+        <img class="logo" src="../assets/icons/logoBlue.svg">
+    </div>
+    <div class="main-wrapper">
+        <div class="main signup-form">
+            <div class="form-header">
+                <button class="back-btn" onclick="window.location.href='../index.html';">
+                    <img class="blue-back-button" src="../assets/icons/arrow-left-line.svg">
+                </button>
+                <div class="signup-headline">
+                    <h1>Sign up</h1>
+                    <div class="underline-header"></div>
+                </div>
+            </div>
+            <form id="signupForm">
+                <div class="inputfield">
+                    <input class="font-size-sign-up" id="userName" required type="text" placeholder="Name"
+                        autocomplete="name" class="username">
+                    <input class="font-size-sign-up" id="userEmail" required type="email" placeholder="Email"
+                        autocomplete="email">
+                    <input class="font-size-sign-up" id="password" required type="password" placeholder="Password"
+                        autocomplete="new-password">
+                    <input class="font-size-sign-up" id="confirmPassword" required type="password"
+                        placeholder="Confirm Password" autocomplete="new-password" class="input-field-confirm-pw">
+                    <label for="privacy-policy" class="accept-policy">
+                        <input type="checkbox" id="privacy-policy" name="privacy-policy" style="display:none;" />
+                        <img src="../assets/icons/checkbox.svg" id="checkbox" class="checkbox-img" />
+                        I accept the
+                        <a href="privacy.html"
+                            onclick="sessionStorage.setItem('activeTab', this.innerHTML.toLowerCase())"
+                            target="_blank">Privacy Policy</a>
+                    </label>
+                </div>
+                <span id="privacyCheck" class="error">You have to accept the privacy policy to sign up</span>
+                <span id="passwordErrorMessage" class="error">Oops! Your passwords do not match!</span>
+                <span id="mailErrorMessage" class="error">Oops! Your email address is not valid!</span>
+                <span id="criteriaMessage" class="error">Password criteria: Must contain at least one uppercase letter,
+                    one digit, one special character (@$!%*?&.,:), and be at least 8 characters long.</span>
+                <span id="emailExistsMessage" class="error">This email address is already registered.</span>
+
+                <div class="signup-btn-headsection">
+                    <button id="signup-btn" type="submit" class="signup-btn" disabled>Sign up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="successPopup" class="popup">
+        <div class="popup-content">
+            <p>You Signed up successfully</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="privacy.html" onclick="sessionStorage.setItem('activeTab', this.innerHTML.toLowerCase())"
+            target="_blank">Privacy
+            Policy</a>
+        <a href="imprint.html" onclick="sessionStorage.setItem('activeTab', this.innerHTML.toLowerCase())"
+            target="_blank">Legal
+            Notice</a>
+    </div>
+
+
+
+
+</body>
+
+</html>

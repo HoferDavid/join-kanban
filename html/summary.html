@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link rel="icon" href="../assets/icons/logoBlue.svg" />
+
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../style/fonts.css">
+    <link rel="stylesheet" href="../style/summary.css">
+
+    <script src="../script/board.js"></script>
+    <script src="../script/board2.js"></script>
+    <script src="../script/boardtemplate.js"></script>
+    <script src="../script/addTask.js"></script>
+    <script src="../script/miscTemplate.js"></script>
+    <script src="../script/summary.js"></script>
+    <script src="../script.js"></script>
+
+
+
+</head>
+
+<body onload="initSummary()">
+
+    <header w3-include-html="../assets/templates/html/header.html" class="header"></header>
+
+    <main class="content contentSection forbiddenContent">
+        <div id="greetingSummaryMobile"></div>
+        <div class="summ-main" id="summaryMain">
+            <div class="headline-summ">
+                <h2 class="headline-summ-h2">Join 360</h2>
+                <div class="summ-seperate"></div>
+                <span class="summ-info">Key Metrics at a Glance // new branch test</span>
+                <div class="summ-seperate-mobile"></div>
+            </div>
+            <div class="summ-2">
+                <div class="summ-stats">
+                    <div class="topContainer">
+                        <div class="summ-toDO-info summ-info-field" onclick="nextPage()">
+                            <img class="summ-pencil-toDO" src="../assets/icons/summary-pencil.png">
+                            <img class="summ-pencil-unvisible" src="..//assets/icons/summary-pencil-unvisiable.png">
+
+                            <div class="summ-open-info">
+                                <span id="howManyTodos" class="how-many-dones">0</span>
+                                <span class="how-many-done">To-do</span>
+                            </div>
+                        </div>
+                        <div class="summ-done-info summ-info-field" onclick="nextPage()">
+                            <img class="summ-todo-cheking" src="..//assets/icons/summary-check.png">
+                            <img class="summ-todo-hover-cheking" src="..//assets/icons/summary-hover-check.png">
+                            <div class="summ-open-info">
+                                <span id="howManyDone" class="how-many-dones">0</span>
+                                <span class="how-many-done">Done</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="summ-stats-urgent summ-info-field" onclick="nextPage()">
+                        <div class="summ-info-urgent">
+                            <img src="../assets/icons/summary-urgent-logo.png">
+                            <div class="summ-info">
+                                <span id="howManyUrgent" class="how-many-dones">0</span>
+                                <span class="how-many-todos">Urgent</span>
+                            </div>
+                        </div>
+
+                        <div class="summ-urgent-seperate"></div>
+                        <div class="summ-urgent-date-container">
+                            <span id="summUrgentDate" class="summ-urgent-date"></span>
+                            <span class="summ-urgent-date-deadline">Upcoming Deadline</span>
+                        </div>
+                    </div>
+                    <div class="summ-stats-under-container">
+                        <div class="summ-info-field under-container" onclick="nextPage()">
+                            <span id="howManyTaskInBoard" class="summ-stats-under-howmany">0</span>
+                            <span class="summ-stats-under-tasks">Tasks in board</span>
+                        </div>
+                        <div class="summ-info-field under-container" onclick="nextPage()">
+                            <span id="howManyInProgress" class="summ-stats-under-howmany">0</span>
+                            <span class="summ-stats-under-tasks">Tasks in Progress</span>
+                        </div>
+                        <div class="summ-info-field under-container" onclick="nextPage()">
+                            <span id="howManyAwaitFeedback" class="summ-stats-under-howmany">0</span>
+                            <span class="summ-stats-under-tasks">Awaiting Feedback</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="greetingSummDesktop" class="summ-greeting">
+                    <h3 id="greetingSumm" class="summ-day-greeting">Good Day,</h3>
+                    <span id="greetingNameDesktop" class="summ-person-greeting">Guest</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav w3-include-html="../assets/templates/html/menu.html" class="menu"></nav>
+
+</body>
+
+</html>

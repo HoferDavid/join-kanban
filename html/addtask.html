@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    <link rel="icon" href="../assets/icons/logoBlue.svg" />
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style/fonts.css">
+    <link rel="stylesheet" href="../style/addtask.css">
+
+    <script src="../script/contacts.js"></script>
+    <script src="../script/contactsTemplate.js"></script>
+    <script src="../script/addTask.js"></script>
+    <script src="../script/addTaskTemplate.js"></script>
+    <script src="../script/board.js"></script>
+    <script src="../script/board2.js"></script>
+    <script src="../script.js"></script>
+</head>
+
+<body onload="init()">
+
+    <header w3-include-html="../assets/templates/html/header.html" class="header"></header>
+
+    <main class="content contentSection forbiddenContent">
+        <section w3-include-html="../assets/templates/html/addtasktemplate.html"></section>
+    </main>
+
+    <nav w3-include-html="../assets/templates/html/menu.html" class="menu"></nav>
+
+</body>
+
+</html>

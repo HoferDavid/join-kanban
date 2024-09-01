@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="icon" href="../assets/icons/logoBlue.svg" />
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style/fonts.css">
+    <link rel="stylesheet" href="../style/contacts.css">
+
+    <script src="../script/contactsTemplate.js"></script>
+    <script src="../script/contacts.js"></script>
+    <script src="../script.js"></script>
+
+</head>
+
+<body onload="initContacts()">
+
+    <header w3-include-html="../assets/templates/html/header.html" class="header"></header>
+
+    <main class="content contentSection forbiddenContent">
+        <div id="contactsDetail" class="ttx100">
+            <div class="contactsHeader">
+                <h1>Contacts</h1>
+                <p class="bordered fs20">Better with a Team</p>
+            </div>
+        </div>
+        <div id="contactsGeneral" class="contactsGeneral"></div>
+        <div id="addContact" class="workContact tty100">
+            <div class="workContactContainer up">
+                <img class="closeX" src="../assets/icons/close.svg" alt="close X"
+                    onclick="toggleClass('addContact', 'tt0', 'tty100')">
+                <img class="closeX" src="../assets/icons/closeGrey.svg" alt="close X"
+                    onclick="toggleClass('addContact', 'tt0', 'tty100')">
+                <img src="../assets/icons/logowhite.svg" alt="logo white">
+                <h2>Add contact</h2>
+                <p class="bordered">Tasks are better with a team!</p>
+            </div>
+            <div id="addProfilePic" class="addProfilePic">
+                <img src="../assets/img/contacts/emptyProfilPic.svg" alt="empty Profil Picture">
+            </div>
+            <div class="workContactContainer down">
+                <form onsubmit="addContacts(); return false;" class="contactForm">
+                    <div class="warning d-none">Name or E-Mail already in use</div>
+                    <input id="addName" type="text" placeholder="Name Lastname" value=""
+                        pattern="[A-Z][a-zA-Z]+(\s[A-Z][a-zA-Z]+)+"
+                        title="Please enter a valid name (e.g., Max Mustermann)" minlength="5" maxlength="40" required>
+                    <input id="addMail" type="email" placeholder="example@example.com" value=""
+                        pattern="[A-Za-z0-9._+\-']+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"
+                        title="Please enter a valid email address (e.g., example@domain.com)" minlength="6"
+                        maxlength="50" required>
+                    <input id="addTel" type="tel" placeholder="+491234567890" pattern="\+[0-9]{6,20}"
+                        title="Phone number must include country prefix, phone prefix, and phone number (e.g., +491234567890)"
+                        minlength="7" maxlength="17" value="" required>
+                    <div class="editButtonContainer">
+                        <button onclick="toggleClass('addContact', 'tt0', 'tty100')" class="deleteContactButton">Cancel
+                            <img src="../assets/icons/closeGrey.svg" alt="close X">
+                            <img src="../assets/icons/closeBlue.svg" alt="close X">
+                        </button>
+                        <button type="submit" class="addContactButton">Create Contact
+                            <img src="../assets/icons/check.svg" alt="check">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="editContact" class="workContact tty100">
+            <div class="workContactContainer up">
+                <img class="closeX" src="../assets/icons/close.svg" alt="close X"
+                    onclick="toggleClass('editContact', 'tt0', 'tty100')">
+                <img class="closeX" src="../assets/icons/closeGrey.svg" alt="close X"
+                    onclick="toggleClass('editContact', 'tt0', 'tty100')">
+                <img src="../assets/icons/logowhite.svg" alt="logo white">
+                <h2 class="bordered">Edit contact</h2>
+            </div>
+            <div id="editProfilePic" class="editProfilePic"></div>
+            <div class="workContactContainer down">
+                <form onsubmit="editContacts(); return false;" class="contactForm">
+                    <div class="warning d-none">Name or E-Mail already in use</div>
+                    <input id="editName" type="text" placeholder="Name Lastname" value=""
+                        pattern="[A-Z][a-zA-Z]+(\s[A-Z][a-zA-Z]+)+"
+                        title="Please enter a valid name (e.g., Max Mustermann)" minlength="5" maxlength="40" required>
+                    <input id="editMail" type="email" placeholder="example@example.com" value=""
+                        pattern="[A-Za-z0-9._+\-']+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"
+                        title="Please enter a valid email address (e.g., example@domain.com)" minlength="6"
+                        maxlength="50" required>
+                    <input id="editTel" type="tel" placeholder="+491234567890" pattern="\+[0-9]{6,20}"
+                        title="Phone number must include country prefix, phone prefix, and phone number (e.g., +491234567890)"
+                        minlength="7" maxlength="17" value="" required>
+                    <div class="editButtonContainer">
+                        <button type="button" onclick="openDeleteContacts()" class="deleteContactButton">Delete</button>
+                        <button type="submit" class="editContactButton">Save <img src="../assets/icons/check.svg"
+                                alt="check icon"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="deleteResponse" class="deleteResponse ts0">
+            <div class="deleteQuestion">
+                <p>Do you really want to delete this entry?</p>
+                <form onsubmit="deleteContacts(); return false;">
+                    <button type="button" onclick="toggleClass('deleteResponse', 'ts0', 'ts1')">NO <img
+                            src="../assets/icons/close.svg" alt="close X"></button>
+                    <button type="submit">YES <img src="../assets/icons/check.svg" alt="check icon"></button>
+                </form>
+            </div>
+        </div>
+
+
+    </main>
+
+    <nav w3-include-html="../assets/templates/html/menu.html" class="menu"></nav>
+</body>
+
+</html>

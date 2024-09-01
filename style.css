@@ -1,0 +1,394 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: rgb(246, 247, 248);
+  display: grid;
+  grid-template-rows: 80px auto 80px;
+  grid-template-columns: 232px auto;
+  grid-template-areas:
+    "header header"
+    "content content"
+    "menu menu";
+  height: 100dvh;
+}
+
+* {
+  --sb-track-color: transparent;
+  --sb-thumb-color: #a8a8a8;
+  --sb-size: 4px;
+}
+
+*::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 8px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+.d-none {
+  display: none !important;
+}
+
+.ts0 {
+  transform: scale(0);
+}
+
+.ts1 {
+  transform: scale(1);
+}
+
+.contentSection {
+  grid-area: content;
+  overflow: auto;
+}
+
+.header {
+  grid-area: header;
+}
+
+.menu {
+  grid-area: menu;
+}
+
+/* Header */
+.headerContainerMobile {
+  height: 80px;
+  background-color: white;
+  padding: 20px 16px 20px 16px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.headerUserBadge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border: 2px solid #2a3647;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  color: #29abe2;
+  cursor: pointer;
+}
+
+.headerUserBadge:hover {
+  background-color: rgba(12, 46, 98, 0.12);
+  border-radius: 50%;
+}
+
+.headerContainerDesktop {
+  grid-area: header;
+  height: 96px;
+  background-color: white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  display: none;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+
+.headerContainerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 40px 20px 116px;
+  z-index: 50;
+}
+
+.headerText {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.headerRightContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.headerHelpIcon {
+  cursor: pointer;
+}
+
+.headerHelpIcon:hover>img {
+  transform: scale(1.1);
+}
+
+.headerMenuContainer {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 16px;
+  height: 200px;
+  width: 150px;
+  background-color: #2a3647;
+  border-radius: 20px 0 20px 20px;
+  transform-origin: top right;
+  transition: transform 125ms ease-in-out;
+  z-index: 99;
+}
+
+.headerMenuContainer a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 300;
+  color: #cdcdcd;
+  cursor: pointer;
+}
+
+.headerMenuContainer a:hover {
+  color: #29abe2;
+}
+
+/* Menu */
+.menuContainer {
+  grid-area: menu;
+  height: 100%;
+  background-color: #2a3647;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+  gap: 128px;
+}
+
+.menuBtnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+
+.menuLinks {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  height: inherit;
+}
+
+
+.menuBtn {
+  height: 76px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #cdcdcd;
+  background-color: #2a3647;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  text-decoration: none;
+  border-width: 0;
+}
+
+.menuBtn img:last-of-type {
+  display: none;
+}
+
+.menuBtn:hover {
+  background-color: #2a3d59;
+  border-radius: 8px;
+}
+
+.menuBtnActive {
+  background-color: #091931;
+  border-radius: 8px;
+  color: white;
+}
+
+.menuBtnActive:hover {
+  background-color: #091931;
+}
+
+.menuBtnActive img:first-of-type {
+  display: none;
+}
+
+.menuBtnActive img:last-of-type {
+  display: block;
+}
+
+.menuBtnIcon {
+  height: 22px;
+  width: 22px;
+}
+
+.menuLogoContainer {
+  display: none;
+  justify-content: center;
+}
+
+.menuLogo {
+  width: 100px;
+  height: 122px;
+  cursor: pointer;
+}
+
+.menuLegalContainer {
+  width: 100%;
+  gap: 4px;
+  display: none;
+  flex-direction: column;
+}
+
+.menuLegalContainer .menuBtn {
+  width: 100%;
+  height: 36px;
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+  color: #A8A8A8;
+  line-height: 19.2px;
+  text-decoration: none;
+  cursor: pointer;
+  align-items: center;
+}
+
+.menuLegalContainer .menuBtn:hover {
+  background-color: unset;
+  color: #29abe2;
+}
+
+.logoContainer:hover {
+  background-color: unset;
+  transform: scale(1.1);
+}
+
+/*ANCHOR Media Query
+X-Small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap*/
+
+@media (max-width: 427px) {
+  .menuBtnContainer {
+    gap: 0px;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+
+  .headerContainerMobile {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .headerMenuContainer {
+    position: absolute;
+    top: 50px;
+    right: 70px;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  body {
+    grid-template-rows: 96px auto 80px;
+    grid-template-areas:
+      "menu header"
+      "menu content"
+      "menu content";
+  }
+
+  .headerContainerDesktop {
+    display: flex;
+  }
+
+  .headerContainerMobile {
+    display: none;
+  }
+
+  .menuContainer {
+    padding: 64px 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menuBtnContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .menuBtn {
+    height: 46px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+    padding-left: 48px;
+  }
+
+  .menuBtn:hover,
+  .menuBtnActive {
+    border-radius: 0;
+  }
+
+  .menuBtnIcon {
+    height: 30px;
+    width: 30px;
+  }
+
+  .headerUserBadge {
+    height: 56px;
+    width: 56px;
+    border: 3px solid #2a3647;
+    font-size: 24px;
+  }
+
+  .menuLogoContainer,
+  .menuLegalContainer {
+    display: flex;
+  }
+
+  .menuLinks {
+    justify-content: space-between;
+    height: min(100%, calc(1080px - 250px));
+  }
+
+  .headerMenuContainer {
+    position: absolute;
+    top: 65px;
+    right: 90px;
+  }
+}
+
+/*X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {}
+
+/*XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {}

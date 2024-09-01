@@ -1,0 +1,28 @@
+<div class="headerContainerMobile" id="headerContainerMobile">
+  <a href class="logoContainer">
+    <img src="../assets/icons/logoBlue.svg" />
+  </a>
+  <div class="headerUserBadge"
+    onclick="toggleClass('headerMenuContainer', 'ts0', 'ts1'); activateOutsideCheck('headerMenuContainer', 'ts1', 'ts0')">
+    G</div>
+</div>
+
+<div class="headerContainerDesktop" id="headerContainerDesktop">
+  <div class="headerContainerContent">
+    <div class="headerText">Kanban Project Management Tool</div>
+    <div class="headerRightContainer" id="headerUserContainer">
+      <a class="headerHelpIcon" href="../html/help.html"><img src="../assets/icons/help.svg"></a>
+      <div class="headerUserBadge" id="headerUserBadge"
+        onclick="toggleClass('headerMenuContainer', 'ts0', 'ts1'); activateOutsideCheck('headerMenuContainer', 'ts1', 'ts0')">
+        G
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="headerMenuContainer" class="headerMenuContainer ts0">
+  <a href="../html/help.html">Help</a>
+  <a href="../html/imprint.html" onclick="setActiveTab('.menuBtn[href=\'../html/imprint.html\']')">Legal Notice</a>
+  <a href="../html/privacy.html" onclick="setActiveTab('.menuBtn[href=\'../html/privacy.html\']')">Privacy Policy</a>
+  <a onclick="logOut()">Log Out</a>
+</div>

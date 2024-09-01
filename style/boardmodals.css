@@ -1,0 +1,496 @@
+#overlay,
+#addTaskOverlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  animation: slideIn 100ms ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  max-height: 724px;
+  width: 410px;
+  background-color: white;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  padding: 32px 8px 32px 24px;
+  gap: 16px;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 19.2px;
+  font-weight: 400;
+  min-height: 500px;
+}
+
+.addTaskModalContainer {
+  display: flex;
+  flex-direction: column;
+  height: 870px;
+  width: 960px;
+  background-color: white;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.modalCategoryContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+}
+
+.modalUserStoryBadge,
+.modalTechnicalTaskBadge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 4px 16px 4px 16px;
+  color: white;
+}
+
+.modalUserStoryBadge {
+  background-color: #0038ff;
+  width: 113px;
+}
+
+.modalTechnicalTaskBadge {
+  background-color: #1fd7c1;
+  width: 144px;
+}
+
+.modalScrollbarWrapper {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: 16px;
+  flex: 1;
+  padding: 0 1px;
+}
+
+.editTaskForm {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editTaskScrollbarWrapper {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: 24px;
+  flex: 1;
+  padding: 0 1px;
+}
+
+.editTaskCloseContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editTaskPrioContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modalCloseIcon {
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+}
+
+.modalCloseIcon:hover {
+  background-color: #29abe2;
+  border-radius: 50%;
+}
+
+.modalToDoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.modalHeader {
+  font-size: 36px;
+  line-height: 43.2px;
+  font-weight: 700;
+  top: 40px;
+  background-color: white;
+}
+
+.modalDateContainer,
+.modalPrioContainer {
+  display: flex;
+  gap: 24px;
+}
+
+.modalDateText,
+.modalPrioText,
+.modalAssignedToText,
+.modalSubtasksText {
+  color: #42526e;
+  font-weight: 700;
+  width: 104px;
+}
+
+.modalPrioIconContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modalAssignedToContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalAssignedToContainer svg {
+  height: 42px;
+  width: 42px;
+}
+
+.modalAssignedToSingle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+}
+
+.modalAssignedToBadge {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.4;
+}
+
+.modalSubtasksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.modalSubtasksSingle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 16px;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.modalSubtasksSingle:hover {
+  background-color: rgb(245, 245, 245);
+  border-radius: 12px;
+}
+
+.modalBottomContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 10;
+}
+
+.modalBottomDeleteContainer,
+.modalBottomEditContainer,
+.editBottomContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  justify-content: flex-end;
+}
+
+.editBottomContainer {
+  margin-top: 24px;
+}
+
+.modalBottomDeleteContainer:hover,
+.modalBottomEditContainer:hover {
+  filter: invert(54%) sepia(69%) saturate(562%) hue-rotate(155deg) brightness(95%) contrast(87%);
+}
+
+.modalBottomSeparator {
+  width: 1px;
+  height: 24px;
+  background-color: #d1d1d1;
+}
+
+.addTaskModalContainer .addTaskHeaderSection {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 32px 0px 32px;
+}
+
+.addTaskModalContainer .addTaskSection {
+  padding: 0px;
+  align-items: center;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.addTaskModalContainer .addTaskForm {
+  flex-direction: row;
+  gap: 24px;
+}
+
+.addTaskModalContainer .inputContainerBottom,
+.addTaskModalContainer .inputContainerTop {
+  width: 440px;
+}
+
+.addTaskModalContainer .prioBtnContainer {
+  max-width: 440px;
+}
+
+.editTaskPrioContainer .prioBtnContainer,
+.editTaskScrollbarWrapper .singleInputContainer {
+  max-width: 440px;
+}
+
+.addTaskModalContainer .bottomContainer {
+  display: flex;
+  position: fixed;
+  padding: 0px 32px 48px 0px;
+  background-color: white;
+}
+
+.addTaskModalContainer .prioBtnUrgent,
+.addTaskModalContainer .prioBtnMedium,
+.addTaskModalContainer .prioBtnLow {
+  height: 56px;
+  width: 136px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.prioBtnUrgent,
+.prioBtnMedium,
+.prioBtnLow {
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.addTaskModalContainer .addTaskModalClose {
+  display: flex;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+}
+
+.addTaskModalContainer .addTaskModalClose:hover {
+  background-color: #29abe2;
+  border-radius: 50%;
+}
+
+.saveTaskEditBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2a3647;
+  color: white;
+  gap: 4px;
+  padding: 18px 10px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25.2px;
+  cursor: pointer;
+}
+
+.saveTaskEditBtn:hover {
+  background-color: #29abe2;
+}
+
+.taskEditForm {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 427px) {
+  .modalContainer {
+    max-height: 480px;
+    width: 310px;
+    border-radius: 12px;
+    padding: 8px 8px;
+  }
+
+  .modalHeader {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 32.4px;
+  }
+
+  .modalDescription {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.4px;
+  }
+
+  .modalAssignedToSingle {
+    gap: 8px;
+    padding: 4px 8px;
+  }
+
+  .modalAssignedToBadge {
+    width: 24px;
+    height: 24px;
+  }
+
+  .modalSubtasksContainer {
+    gap: 4px;
+    margin-top: 4px;
+  }
+
+  .modalSubtasksSingle {
+    gap: 8px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-height: 680px) {
+  #overlay {
+    top: 32px;
+  }
+}
+
+@media (max-width: 991px) {
+  .addTaskModalContainer {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .modalContainer {
+    max-height: 932px;
+    width: 525px;
+    padding: 48px 16px 48px 40px;
+    gap: 24px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .modalUserStoryBadge {
+    width: 164px;
+    height: 36px;
+  }
+
+  .modalTechnicalTaskBadge {
+    width: 208px;
+    height: 36px;
+  }
+
+  .modalScrollbarWrapper,
+  .modalToDoContent {
+    gap: 24px;
+  }
+
+  .modalHeader {
+    font-size: 60px;
+    line-height: 73.2px;
+  }
+
+  .modalDateText,
+  .modalPrioText,
+  .modalAssignedToText {
+    width: 128px;
+  }
+
+  .modalSubtasksContainer,
+  .modalBottomContainer {
+    font-size: 16px;
+    line-height: 19.2px;
+    font-weight: 400;
+  }
+
+  .addTaskModalContainer .inputContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .addTaskModalContainer .seperatorLine {
+    display: flex;
+  }
+
+  .addTaskModalContainer .addTaskForm {
+    padding-left: 0;
+  }
+
+  .addTaskModalContainer .bottomContainer {
+    width: 928px;
+    position: fixed;
+    top: auto;
+  }
+
+  .saveTaskEditBtn {
+    padding: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .addTaskModalContainer .addTaskHeaderSection {
+    margin: 12px 96px 0px 96px;
+  }
+
+  .addTaskModalContainer {
+    width: 1116px;
+  }
+
+  .addTaskModalContainer .bottomContainer {
+    padding: 0px 0px 48px 0px;
+    width: 978px;
+  }
+
+  .addTaskModalContainer .inputContainer {
+    gap: 48px;
+  }
+}
+
+@media (min-width: 1440px) {}
