@@ -345,7 +345,6 @@ function activateOutsideCheck(modalName, class1, class2) {
 }
 
 
-
 /**
  * Checks if the user has clicked outside a specified modal element.
  * If the user has clicked outside the modal and the modal has the specified class,

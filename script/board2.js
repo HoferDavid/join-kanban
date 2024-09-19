@@ -1,4 +1,3 @@
-
 /**
  * The function `updateNoTasksFoundVisibility` toggles the visibility of an element based on the
  * presence of any visible tasks.
@@ -14,7 +13,6 @@ function updateNoTasksFoundVisibility(anyVisibleTask) {
     noTasksFound.classList.remove('dNone');
   }
 }
-
 
 
 /**
@@ -39,7 +37,6 @@ function checkScreenWidth(category) {
 }
 
 
-
 /**
  * The function `openAddTaskOverlay` asynchronously opens an overlay for adding a task by fetching a
  * template and displaying it on the webpage.
@@ -50,7 +47,6 @@ async function openAddTaskOverlay() {
   addTaskOverlay.innerHTML = await fetchAddTaskTemplate();
   addTaskOverlay.style.display = "block";
 }
-
 
 
 /**
@@ -67,7 +63,6 @@ function openOverlay(elementId) {
   overlay.innerHTML = generateOpenOverlayHTML(element);
   overlay.style.display = "block";
 }
-
 
 
 /**
@@ -129,7 +124,6 @@ function updateSubtaskStatusDom(subtask, subtaskIndex) {
 }
 
 
-
 /**
  * Enables the editing of a task by populating the edit form with the task's current data.
  *
@@ -149,6 +143,7 @@ function enableTaskEdit(taskId) {
   updatePrioActiveBtn(task.prio);
   renderAssignedContacts();
 }
+
 
 /**
  * Creates an edited task object based on the provided task ID.

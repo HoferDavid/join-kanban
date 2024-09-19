@@ -3,7 +3,6 @@ let currentSearchInput = '';
 let currentTaskStatus;
 
 
-
 /**
  * The `initBoard` function initializes the board by setting up tasks, checking data, storing tasks in
  * session storage, enabling drag and drop functionality, and applying search filters.
@@ -39,7 +38,6 @@ async function initCheckData() {
 }
 
 
-
 /**
  * The function `pushDataToArray` asynchronously loads data for tasks, processes each task, and pushes
  * them into an array while handling errors.
@@ -59,7 +57,6 @@ async function pushDataToArray() {
     console.error("Error pushing tasks to array:", error);
   }
 }
-
 
 
 /**
@@ -147,7 +144,7 @@ function updateAllTaskCategories() {
 
 /**
  * Creates a task array from the given key and task data.
- * 
+ *
  * @async
  * @param {string} key - The task ID.
  * @param {Object} singleTask - The task data.
@@ -171,7 +168,7 @@ async function createTaskArray(key, singleTask) {
 
 /**
  * Updates the task categories based on the status and renders them in the specified category element.
- * 
+ *
  * @param {string} status - The status of the tasks to update.
  * @param {string} categoryId - The ID of the category element to update.
  * @param {string} noTaskMessage - The message to display if there are no tasks.
@@ -195,7 +192,7 @@ function updateTaskCategories(status, categoryId, noTaskMessage) {
 
 /**
  * Updates the progress bar for the subtasks of a task.
- * 
+ *
  * @param {Object[]} subtasks - The list of subtasks.
  * @param {string} taskId - The ID of the task.
  */
@@ -214,7 +211,7 @@ function updateSubtasksProgressBar(subtasks, taskId) {
 
 
 /**
- * Initializes the drag and drop functionality by updating all task categories 
+ * Initializes the drag and drop functionality by updating all task categories
  * and setting up the drag and drop handlers.
  */
 function initDragDrop() {
@@ -241,7 +238,7 @@ function dragDrop() {
 
 /**
  * Starts dragging an element with the given ID.
- * 
+ *
  * @param {string} id - The ID of the element to drag.
  */
 function startDragging(id) {
@@ -254,7 +251,7 @@ function startDragging(id) {
 
 /**
  * Allows dropping of elements by preventing the default event behavior.
- * 
+ *
  * @param {Event} ev - The dragover event.
  */
 function allowDrop(ev) {
@@ -281,7 +278,7 @@ function dragLeave() {
 
 /**
  * Moves a task to a new status and updates the board accordingly.
- * 
+ *
  * @async
  * @param {string} status - The new status of the task.
  */
@@ -371,7 +368,7 @@ function searchForTitleOrDescription(taskCards, currentSearchInput) {
 
 /**
  * Toggles the visibility of the drag areas while searching for tasks.
- * 
+ *
  * @param {string} searchValue - The search input value.
  */
 function emptyDragAreaWhileSearching(searchValue) {
