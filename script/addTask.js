@@ -296,7 +296,6 @@ function createNewtask() {
 }
 
 
-
 /**
  * The function `closeAddTaskModal` closes the add task modal, shows a task added animation,
  * initializes data checking, updates task categories, and initializes drag and drop functionality.
@@ -309,6 +308,8 @@ async function closeAddTaskModal() {
     sessionStorage.removeItem('tasks');
   } else {
     showTaskAddedAnimation();
+    tasks = [];
+    setActiveTab('.menuBtn[href="../html/board.html"]');
     sessionStorage.removeItem('tasks');
     await initCheckData();
     updateAllTaskCategories();
@@ -417,8 +418,3 @@ function clearAddTaskForm() {
   document.getElementById('subtaskInput').value = '';
   clearSubtaskList();
 }
-
-
-
-
-

@@ -347,7 +347,7 @@ function generateTaskEditHTML(taskId) {
                     </div>
                     <div class="singleInputContainer" onclick="">
                         <div class="redStarAfter">Due date</div>
-                        <input id="editDateInput" class="dateInput" type="date" placeholder="dd/mm/yyyy" required>
+                        <input id="editDateInput" class="dateInput" type="date" placeholder="dd/mm/yyyy" max="2999-12-31" required>
                         <div class="formValidationText" style="display: none;">This field is required</div>
                     </div>
                     <div class="editTaskPrioContainer">
