@@ -361,3 +361,8 @@ function checkOutsideModal(modalName, class1, class2) {
     document.removeEventListener('click', function () { checkOutsideModal(modalName); });
   };
 }
+
+
+
+
+

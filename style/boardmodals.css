@@ -253,7 +253,8 @@
 
 .modalBottomDeleteContainer:hover,
 .modalBottomEditContainer:hover {
-  filter: invert(54%) sepia(69%) saturate(562%) hue-rotate(155deg) brightness(95%) contrast(87%);
+  filter: invert(54%) sepia(69%) saturate(562%) hue-rotate(155deg)
+    brightness(95%) contrast(87%);
 }
 
 .modalBottomSeparator {
@@ -406,6 +407,22 @@
   }
 }
 
+@media (max-height: 800px) {
+  .addTaskModalContainer {
+    height: 600px;
+    overflow: hidden;
+  }
+
+  .inputContainer {
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  .modalContainer {
+    height: 660px;
+  }
+}
+
 @media (min-width: 992px) {
   .modalContainer {
     max-height: 932px;
@@ -493,4 +510,5 @@
   }
 }
 
-@media (min-width: 1440px) {}
+@media (min-width: 1440px) {
+}
